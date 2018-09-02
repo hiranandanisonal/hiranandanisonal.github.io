@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<title>Homepage</title>
 	<link rel="icon" href="favicon.png" type="image/png">
@@ -21,6 +22,7 @@
 	<!-- Extra -->
 	<link rel="stylesheet" href="bootstrap3/css/bootstrap.css" type="text/css">
 	
+	
 
 	<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -33,7 +35,12 @@
 	<script src="contactform/contactform.js"></script>
 	<!--extra-->
 	<script src="bootstrap3/js/bootstrap.js" type="application/javascript"></script>
+	<!--extra for form-->
+	<script src="javascript/slim.min.js" ></script>
 
+<script type='text/javascript' src='javascript/jquery.js'></script>
+
+<script type='text/javascript' src='javascript/jquery-migrate.min.js'></script>
 
 </head>
 
@@ -188,6 +195,215 @@
 
 							<div class="text-center"><button type="submit" class="input-btn">Send Message</button></div>
 						</form>
+						<!---------------------------->
+						<form>
+
+
+<!--solo/duet/group-->
+
+<label>Category<br />
+
+<select name="category" id="category">
+
+<!--<option value="" selected>select</option>-->
+
+<option label="PY-IT"  value="Solo">PY-IT</option>
+<option label="Logo_Search" value="Duet">Logo Search</option>
+
+<option label="Tech_Quiz" value="Solo" id="duet">Tech Quiz</option>
+
+<option label="Poster-Making" value="Group">Poster Making</option>
+<option label="UI_Mockup" value="Group">UI Mockup</option>
+
+
+    </select>
+
+    </label>
+
+    
+
+    <!-- onchange="populate(this.options[this.selectedIndex].value)"-->
+
+
+
+<br>
+
+
+<label>Enrollment no <input type="text" name="enroll" id="enroll" class="enrolll" required  />
+
+<p id="help"></p></label>
+
+        
+
+        <br>
+
+
+<br>
+
+
+
+<label>
+
+Name (Leader's name, if team) 
+
+<input type="text" name="name" required class="inputt" />
+
+</label><br><br>
+
+       
+
+        <label>
+
+        Branch
+
+        <select name="branch" id="branch">
+
+            <option selected="selected">--select--</option>
+
+            <option value="Arch">Architecture</option>
+
+            <option value="MCA">MCA</option>
+
+            <option value="Chemical">Chemical</option>
+
+            <option value="Civil">Civil</option>
+
+            <option value="CO">Computer</option>
+
+            <option value="Electrical">Electrical</option>
+
+            <option value="EC">Electronics and Communication</option>
+
+            <option value="IT">Information Technology</option>
+
+            <option value="IC">Instrumentation and Control</option>
+
+            <option value="Textile">Textile</option>
+            
+            <option value="ME">ME</option>
+
+            </select></label>
+            <br>
+
+        <br>
+       
+
+        
+        
+        
+        <label>Institute<br />
+
+<select name="institute" id="institute">
+
+<!--<option value="" selected>select</option>-->
+
+<option value="SCET">SCET</option>
+
+<option value="CKP" id="duet">CKP</option>
+
+<option value="GANDHI">GANDHI</option>
+
+    </select>
+
+    </label>
+        
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        <label>
+
+        Year
+
+        <select name="year">
+
+            <option selected="selected">--select--</option>
+
+            <option value="1">1</option>
+
+            <option value="2">2</option>
+
+            <option value="3" id="third">3</option>
+
+            <option value="4" id="fourth">4</option>
+
+            </select></label>
+
+        
+
+        <br>
+
+        <br>
+
+        
+
+        
+
+        <label id="ContactLabel">Contact no <br>
+
+            <input id="contact" type="text" name="contact" pattern="[789][0-9]{9}"  required /><br></label>
+
+            
+
+            
+
+            <br>
+
+            <br>
+
+        
+
+        <label>
+
+        <div id="categ">
+
+        </div></label>
+
+        
+
+        
+
+            
+
+            
+
+            <br>
+
+            <br>
+
+        
+
+        
+
+            
+
+        <div id="items">
+
+            
+
+        </div>                                            
+
+            
+
+        
+
+        <input type="submit" id="submit"/>
+        <br>
+        <p style="color:darkred;">In case, you are unable to register, Call at +91-9426818912,+91-8849946424</p>
+
+    
+
+    
+
+    </form>
+						<!---------------------------->
 					</div>
 				</div>
 			</div>
@@ -387,6 +603,604 @@
 
 		});
 	</script>
+	
+	<!--extra for form-->
+	<script type='text/javascript' src='javascript/script.min.js'></script>
+
+<script type='text/javascript' src='javascript/effect.min.js'></script>
+
+
+
+ 
+
+ 
+
+ 
+
+<script type="text/javascript">
+
+ $(document).ready(function(){
+
+        $("#branch").change(function(){
+
+            var radioValue = $("#branch option:selected").val();
+
+             if(radioValue=="MCA"){
+				 $("#third").show();
+					 
+				 
+               $("#fourth").hide();
+				 
+
+            }
+
+            else if(radioValue=="ME")
+				{
+					 $("#third").hide();
+					 $("#fourth").hide();
+				}
+			else{
+				 $("#third").show();
+					 $("#fourth").show();
+			}
+
+        });
+
+        
+
+    }); 
+
+ </script>  
+ 
+
+ 
+
+<script>
+
+    
+
+$(function()
+
+
+
+{
+
+	$("#submit").prop("disabled", true);
+
+	$("#enroll").keyup(function(e){
+
+       var str=$("#enroll").val();
+		if($("#branch option:selected").val()=="Arch")
+			{}
+
+		else if($("#branch option:selected").val()=="ME")
+			{
+				if((str.indexOf("16042")==0 && str.length==12)||(str.indexOf("17042")==0 && str.length==12))
+
+        {
+
+            if((str.substr(5,2)=="07" && str.length==12)){
+
+            if((str.substr(7,2)=="02" && str.length==12) || (str.substr(7,2)=="13" && str.length==12) || (str.substr(7,2)=="05" && str.length==12) || (str.substr(7,2)=="14" && str.length==12)  || (str.substr(7,2)=="17" && str.length==12)  ||  (str.substr(7,2)=="18" && str.length==12) || (str.substr(7,2)=="07" && str.length==12) || (str.substr(7,2)=="20" && str.length==12)
+			  || (str.substr(7,2)=="26" && str.length==12) || (str.substr(7,2)=="27" && str.length==12) || (str.substr(7,2)=="29" && str.length==12) || (str.substr(7,2)=="33" && str.length==12)
+			   || (str.substr(7,2)=="41" && str.length==12)|| (str.substr(7,2)=="42" && str.length==12)|| (str.substr(7,2)=="43" && str.length==12)|| (str.substr(7,2)=="44" && str.length==12)
+			  
+			  || (str.substr(7,2)=="45" && str.length==12)|| (str.substr(7,2)=="48" && str.length==12)|| (str.substr(7,2)=="54" && str.length==12)|| (str.substr(7,2)=="56" && str.length==12)
+			  )
+
+            {
+
+                 $("#help").html("Okay");
+
+        // var x=1;
+
+          $("#submit").removeAttr("disabled");   
+
+            }
+
+        }
+
+        }
+
+        
+
+        
+
+        
+
+        
+
+       else {
+
+       	$("#help").html("Invalid Enrollment no.");
+		   $("#submit").prop("disabled", true);
+
+       	
+
+       }
+			
+			}
+		else{
+			
+			
+			
+			if((str.indexOf("14042")==0 && str.length==12)||(str.indexOf("15042")==0 && str.length==12)||(str.indexOf("16042")==0 && str.length==12)||(str.indexOf("17042")==0 && str.length==12))
+
+        {
+
+            if((str.substr(5,2)=="01" && str.length==12)||(str.substr(5,2)=="31" && str.length==12 && str.substr(0,5)!="14042")){
+
+            if((str.substr(7,2)=="29" && str.length==12) || (str.substr(7,2)=="16" && str.length==12) || (str.substr(7,2)=="05" && str.length==12) || (str.substr(7,2)=="11" && str.length==12)  || (str.substr(7,2)=="17" && str.length==12)  ||  (str.substr(7,2)=="09" && str.length==12) || (str.substr(7,2)=="07" && str.length==12) || (str.substr(7,2)=="06" && str.length==12))
+
+            {
+
+                 $("#help").html("Okay");
+
+        // var x=1;
+
+          $("#submit").removeAttr("disabled");   
+
+            }
+
+        }
+
+        }
+
+        else if((str.indexOf("155310693")==0 && str.length==12)||(str.indexOf("165310693")==0 && str.length==12)||(str.indexOf("175310693")==0 && str.length==12))
+
+            {
+
+                $("#help").html("Okay");
+
+        // var x=1;
+
+          $("#submit").removeAttr("disabled");
+
+            }
+
+        
+
+        
+
+        
+
+       else {
+
+       	$("#help").html("Invalid Enrollment no.");
+		   $("#submit").prop("disabled", true);
+
+       	
+
+       }
+			
+			
+			
+		}
+       
+
+
+
+
+
+        if(str=='') 
+
+        {     	
+
+        	$("#help").html("");
+
+        	$("#submit").prop("disabled", true);}
+
+        e.preventDefault();
+
+
+
+
+
+        });
+
+	// function submit(){
+
+ //            if(x==1){
+
+ //                return true;
+
+ //           }
+
+ //           else{
+
+ //               alert("Please check value of VAR");
+
+ //               return false;
+
+ //           }
+
+ //    };
+
+
+
+})
+
+    
+
+    
+
+    //----------------------------------------------------------------
+
+    
+
+    
+
+    
+
+    
+
+    
+
+        </script>
+
+          
+
+<script>
+
+    $(function(){
+
+        
+
+        $("#category").change(function(){
+
+            var cat=$("#category option:selected").val();
+
+            
+
+            
+
+             if(cat=="Solo")
+
+            {
+
+                
+
+                $("#categ").empty();
+
+                $("#items").empty();
+
+                
+
+            }
+
+        else if(cat=="Duet")
+
+            {
+
+                
+
+                $("#categ").empty();
+
+                $("#items").empty();
+
+				
+				$("#categ").append('member 2<br><label>Enrollment no <input type="text" class="enrolll" name="enrollment"  required /><p class="helpp"></p>Name <input type="text" name="name" required class="inputt" /></label><br><br> branch <br><br> <select name="branch" id="branch"><option selected="selected">--select--</option><option value="Arch">Architecture</option><option value="MCA">MCA</option><option value="Chemical">Chemical</option><option value="Civil">Civil</option><option value="CO">Computer</option><option value="Electrical">Electrical</option><option value="EC">Electronics and Communication</option><option value="IT">Information Technology</option><option value="IC">Instrumentation and Control</option><option value="Textile">Textile</option><option value="ME">ME</option></select></label><br><br>Year <select name="year"><option selected="selected">--select--</option><option value="1">1</option><option value="2">2</option><option value="3" id="third">3</option><option value="4" id="fourth">4</option></select><br><br>Institute<select name="institute" id="institute"><!--<option value="" selected>select</option>--><option value="SCET">SCET</option><option value="CKP" id="duet">CKP</option><option value="GANDHI">GANDHI</option></select>');;
+				
+				
+				
+
+            }
+
+        else if(cat=="Group"){
+
+            $("#categ").empty();
+
+            $("#items").empty();
+
+            $("#categ").append('<label id="team_size_label">No of members <br><input id="team_size" type="number" name="team_size" placeholder="Min=1, Max=2" required  /><br></label></label>');
+
+        }
+
+        else{
+
+            $("#categ").empty();
+
+        }
+
+            
+
+            
+
+        })
+
+       
+
+    });
+
+</script>
+
+    
+
+   
+<script>
+
+            $(function() {
+
+ //maximum input boxes allowed
+
+var wrapper = $("#items"); //Fields wrapper
+
+//var add_button = $(".add_field_button"); //Add button ID
+
+
+
+ //initlal text box count
+
+$("#categ").on("keyup","#team_size",function(e){ //on add input button click
+
+var x = 2;
+
+wrapper.empty();
+
+var max_fields = parseInt(document.getElementById("team_size").value);
+
+e.preventDefault();
+
+    if(max_fields>1)
+
+$(wrapper).append('Enter names for rest '+(max_fields-1)+' members<br>');
+
+while(x <= max_fields){ //max input box allowed
+
+ //text box increment
+
+$(wrapper).append('member '+x+'<br><label>Enrollment no <input type="text" class="enrolll" name="enrollment'+x+'"  required /><p class="helpp"></p>Name <input type="text" name="name'+x+'" required class="inputt" /></label><br><br> branch <br><br> <select name="branch" id="branch"><option selected="selected">--select--</option><option value="Arch">Architecture</option><option value="MCA">MCA</option><option value="Chemical">Chemical</option><option value="Civil">Civil</option><option value="CO">Computer</option><option value="Electrical">Electrical</option><option value="EC">Electronics and Communication</option><option value="IT">Information Technology</option><option value="IC">Instrumentation and Control</option><option value="Textile">Textile</option><option value="ME">ME</option></select></label><br><br>Year <select name="year"><option selected="selected">--select--</option><option value="1">1</option><option value="2">2</option><option value="3" id="third">3</option><option value="4" id="fourth">4</option></select><br><br>Institute<select name="institute" id="institute"><!--<option value="" selected>select</option>--><option value="SCET">SCET</option><option value="CKP" id="duet">CKP</option><option value="GANDHI">GANDHI</option></select>'); //add input box
+
+    x++;
+
+}
+
+});
+
+ 
+
+})
+
+        </script>
+
+        
+
+   
+<script>
+
+    
+
+$(function()
+
+
+
+{
+
+	$("#submit").prop("disabled", true);
+
+	$("#items").on("keyup",".enrolll",function(e){
+
+       var str=$(this).val();
+
+       if((str.indexOf("14042")==0 && str.length==12)||(str.indexOf("15042")==0 && str.length==12)||(str.indexOf("16042")==0 && str.length==12)||(str.indexOf("17042")==0 && str.length==12))
+
+        {
+
+            if((str.substr(5,2)=="01" && str.length==12)||(str.substr(5,2)=="31" && str.length==12 && str.substr(0,5)!="14042")){
+
+            if((str.substr(7,2)=="29" && str.length==12) || (str.substr(7,2)=="16" && str.length==12) || (str.substr(7,2)=="05" && str.length==12) || (str.substr(7,2)=="11" && str.length==12)  || (str.substr(7,2)=="17" && str.length==12)  ||  (str.substr(7,2)=="09" && str.length==12) || (str.substr(7,2)=="07" && str.length==12) || (str.substr(7,2)=="06" && str.length==12))
+
+            {
+
+                 $(this).next().html("Okay");
+
+                
+
+        // var x=1;
+
+          $("#submit").removeAttr("disabled");   
+
+            }
+
+        }
+
+        }
+
+        else if((str.indexOf("155310693")==0 && str.length==12)||(str.indexOf("165310693")==0 && str.length==12)||(str.indexOf("175310693")==0 && str.length==12))
+
+            {
+
+                $(this).next().html("Okay");
+
+        // var x=1;
+
+          $("#submit").removeAttr("disabled");
+
+            }
+
+        
+
+        
+
+        
+
+       else {
+
+       	//$("#helpp").html("Invalid Enrollment no.");
+
+           $(this).next().html("Invalid enrollment no.");
+		   $("#submit").prop("disabled", true);
+
+       	
+
+       }
+
+
+
+
+
+        if(str=='') 
+
+        {     	
+
+        	$(this).next().html("");
+
+        	$("#submit").prop("disabled", true);}
+
+        e.preventDefault();
+
+
+
+
+
+        });
+
+	// function submit(){
+
+ //            if(x==1){
+
+ //                return true;
+
+ //           }
+
+ //           else{
+
+ //               alert("Please check value of VAR");
+
+ //               return false;
+
+ //           }
+
+ //    };
+
+
+
+})
+
+    
+
+    
+
+    //----------------------------------------------------------------
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</script>  
+
+        
+
+    
+
+      
+<script>
+
+    $("#items").on("change",".enrolll",function(){
+
+        if($(this).val()==$(".enrolll").not(this).val() && $(this).val()!=""){
+
+            $(this).next().html("Entry already exists");
+
+			$(this).val("");
+
+		}
+
+    })
+
+</script>      
+
+        
+
+<script>
+
+    $(".enrolll").change(function(){
+
+        var x=this;
+
+        $(".enrolll").each(function(){
+
+            if($(x).val()==$(this).not(x).val() && $(x).val()!="")
+
+				{
+
+            $(x).next().html("Entry already exists");
+
+			$(x).val("");}
+
+        });
+
+    })
+
+</script>      
+
+       
+
+<script>
+
+    $("#items").on("change",".enrolll",function(){
+
+        var x=this;
+
+        $(".enrolll").each(function(){
+
+            if($(x).val()==$(this).not(x).val() && $(this).val()!=""){
+
+                $(x).next().html("Entry already exists");
+
+				$(x).val("");
+
+			}
+
+        });
+
+    })
+
+</script>
+
+        
+
+        
+
+   <script type="text/javascript">
+
+ $(document).ready(function(){
+
+        $("input[type='radio']").click(function(){
+
+            var radioValue = $("input[name='radio-134']:checked").val();
+
+             if(radioValue=="Vocal"){
+
+                $("#duet").show();
+
+            }
+
+            if(radioValue=="Instrumental"){
+
+                $("#duet").hide();
+
+            }
+
+        });
+
+        
+
+    }); 
+
+ </script>     
+
+
+
+
+
+        
 
 </body>
 
